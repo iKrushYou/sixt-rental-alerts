@@ -2,6 +2,8 @@ const axios = require('axios')
 const moment = require('moment')
 
 const args = require('minimist')(process.argv.slice(2));
+const slackKey = args['slack-key']
+if (!slackKey) throw new Error('missing argument slackKey');
 
 const API_URL = 'https://web-api.orange.sixt.com'
 
@@ -20,8 +22,6 @@ const getRentals = async () => {
 
     return response.data
 }
-
-const slackKey = args['slack-key']
 
 const slackWebhook = `https://hooks.slack.com/services/TLSPDFQE8/BSYAG0MC0/${slackKey}`;
 
