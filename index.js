@@ -19,9 +19,14 @@ const getRentals = async () => {
         currency: 'USD',
     })}`;
 
-    const response = await axios({method, url})
+    try {
+        const response = await axios({method, url})
 
-    return response.data
+        return response.data
+    } catch (e) {
+        console.log({error: e})
+        return null
+    }
 }
 
 const slackWebhook = `https://hooks.slack.com/services/TLSPDFQE8/BSYAG0MC0/${slackKey}`;
