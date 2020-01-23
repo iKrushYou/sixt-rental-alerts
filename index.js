@@ -47,7 +47,7 @@ const main = async () => {
     const cars = data.offers.filter(rental => rental.vehicleGroupInfo.bodyStyle === 'SUV' && rental.carGroupInfo.maxPassengers === 7)
         .sort((a, b) => b.prices.totalPrice.amount.value - a.prices.totalPrice.amount.value)
 
-    let messages = [moment().format('LLL')]
+    let messages = []
 
     cars.forEach(car => {
         const carName = car.description;
